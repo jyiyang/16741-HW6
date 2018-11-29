@@ -99,7 +99,6 @@ end
 
 % normalized screw coordinates of contact normals
 [W] = contactScrew(CP, CN);
-
 % draw contact screws
 figure;
 drawContactScrew(CP, W);
@@ -115,7 +114,6 @@ drawContactScrew(CP, W);
 
 % normalized screw coordinates of contact normals
 [WF] = contactScrew(CPF, CNF);
-rank(W)
 
 % draw contact screw
 figure;

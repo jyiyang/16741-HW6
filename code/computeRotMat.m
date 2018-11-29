@@ -34,5 +34,8 @@ R = eye(3) + skewV + skewV * skewV * ((1 - cosP) / sineP^2);
     r3 = cross(r1, r2);
     
     R = [r1 / norm(r1),r2 / norm(r2),r3 / norm(r3)];
+    if n == [0,; -1; 0]
+        R = [0,1,0;-1,0,0;0,0,1];
+    end
 
 end

@@ -12,7 +12,6 @@ if rank(W) < 6
     zmax = Inf;
 else
     P = sum(W, 2) / size(W, 2);
-    P
     Wp = W - P;
     [x, zmax] = linprog(P, Wp', ones(size(W, 2), 1));
 
