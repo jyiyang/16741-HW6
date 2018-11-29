@@ -9,6 +9,7 @@
 function [R] = computeRotMat(n)
 
 % write your code here
+%{
 xv = [1, 0, 0];
 
 crossP = cross(xv, n);
@@ -20,5 +21,18 @@ skewV = [0, -crossP(3), crossP(2);
          -crossP(2), crossP(1), 0];
 
 R = eye(3) + skewV + skewV * skewV * ((1 - cosP) / sineP^2);
+%}
+
+    r1 = n;
+    if (r1(2) == 0) && (r1(3) == 0)
+        t = [0;1;0];
+    else
+        t = [1;0;0];
+    end
+    
+    r2 = -cross(r1, t);
+    r3 = cross(r1, r2);
+    
+    R = [r1 / norm(r1),r2 / norm(r2),r3 / norm(r3)];
 
 end

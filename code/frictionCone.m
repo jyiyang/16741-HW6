@@ -32,10 +32,11 @@ for i = 1:N
     Ri = computeRotMat(CN(:, i));
     for j = 1:M
         d = [1; mu*cos(2*j*pi/M); mu*sin(2*j*pi/M)];
-        CNF(:, i*N + j) = Ri * d;
-        CPF(:, i*N + j) = CP(:, i);
+        CNF(:, (i-1)*M + j) = Ri * d;
+        CPF(:, (i-1)*M + j) = CP(:, i);
     end
     
 end
 
+end
 % write your code here
