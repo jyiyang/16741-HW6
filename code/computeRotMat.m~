@@ -16,9 +16,8 @@ sineP = norm(crossP);
 cosP = dot(xv, n);
 
 skewV = [0, -crossP(3), crossP(2);
-         crossP(3), 0, -crossP(1);
-         -crossP(2), crossP(1), 0];
+         crossP(3), 0, 
 
-R = eye(3) + skewV + skewV * skewV * ((1 - cosP) / sineP^2);
+R = eye(3) + 
 
 end

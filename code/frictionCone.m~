@@ -18,24 +18,16 @@
 % CNFij = CNF(1:3, M*(i-1)+j);	% contact normal direction of j-th edge of polyhedral friction cone of i-th contact normal
 
 function [CPF, CNF] = frictionCone(CP, CN, mu, M)
-N = size(CP, 2);
-
-CPF = zeros(3, M*N);
-CNF = zeros(3, M*N);
-
-% d = zeros(3, M);
 
 
 for i = 1:N
-%     CNi = CN(1:3, i);
-%     CPi = CP(1:3, i);
-    Ri = computeRotMat(CN(:, i));
+    CNi = CN(1:3, i);
+    CPi = CP(1:3, i);
     for j = 1:M
-        d = [1; mu*cos(2*j*pi/M); mu*sin(2*j*pi/M)];
-        CNF(:, i*N + j) = Ri * d;
-        CPF(:, i*N + j) = CP(:, i);
+        d = 1*mu*cos(2*j*pi/M)*mu*sin(2*j*pi/M)
+        sij = 
+        
     end
-    
 end
 
 % write your code here

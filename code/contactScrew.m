@@ -23,5 +23,4 @@ function [W] = contactScrew(CP, CN)
         W(1:3, i) = CN(:, i) / norm(CN(:, i));
         W(4:6, i) = W(4:6, i) / norm(CN(:, i));
     end
-
 end
