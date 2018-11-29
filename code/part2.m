@@ -39,15 +39,13 @@ switch (FRIC)	% flag for contact condition
             found_flag = false;
             for j = 1:num_sample
                 ivs = randperm(20, i);
-                ratios = zeros(3, i);
-                ratios(1:2, :) = rand(2, i);
-                ratios(3, :) = ones(1, i) - ratios(1,:) - ratios(2,:);
+                ratios = rand(3, i);
                 CP = zeros(3, i);
                 CN = zeros(3, i);
                 for k = 1:i
                     iv = ivs(k);
                     ratio = ratios(:, k);
-                    [cp, cn] = ball.getContactNormal(iv, ratio);
+                    [cp, cn] = ball.getContactNormal(iv, ratio ./ sum(ratio));
                     CP(:, k) = cp;
                     CN(:, k) = cn;
                 end
@@ -85,15 +83,13 @@ switch (FRIC)	% flag for contact condition
             found_flag = false;
             for j = 1:num_sample
                 ivs = randperm(20, i);
-                ratios = zeros(3, i);
-                ratios(1:2, :) = rand(2, i);
-                ratios(3, :) = ones(1, i) - ratios(1,:) - ratios(2,:);
+                ratios = rand(3, i);
                 CP = zeros(3, i);
                 CN = zeros(3, i);
                 for k = 1:i
                     iv = ivs(k);
                     ratio = ratios(:, k);
-                    [cp, cn] = ball.getContactNormal(iv, ratio);
+                    [cp, cn] = ball.getContactNormal(iv, ratio ./ sum(ratio));
                     CP(:, k) = cp;
                     CN(:, k) = cn;
                 end

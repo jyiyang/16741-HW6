@@ -13,7 +13,8 @@ if rank(W) < 6
 else
     P = sum(W, 2) / size(W, 2);
     Wp = W - P;
-    [x, zmax] = linprog(P, Wp', ones(size(W, 2), 1));
+    options = optimoptions('linprog','Display','none');
+    [x, zmax] = linprog(-P, Wp', ones(size(W, 2), 1), [], [], [], [], options);
 
     zmax = -zmax;
     if zmax < 1
